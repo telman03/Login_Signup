@@ -43,10 +43,10 @@
             {% endif %}
         </div>
     </nav>
-    <main>
-    {% block content %}
-    {% endblock content %}
-    </main>
+    <div class="container" id="app">
+        {% block content %}
+        {% endblock %}
+    </div>
     <script src="{% static 'products/static/js/jquery.min.js' %}"></script>
     <script src="{% static 'products/static/js/bootstrap.min.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
