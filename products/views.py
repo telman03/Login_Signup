@@ -1,34 +1,33 @@
 # -*- coding: utf-8 -*-
 from django.views.generic import ListView, DetailView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from .models import Product
 
 from .models import Product
-from .forms import ProductForm
+# from .forms import ProductForm
 
 class ProductList(ListView):
     model = Product
+    template_name = 'product_list.html'
 
 class ProductDetail(DetailView):
     model = Product
+    template_name = 'product_detail.html'
 
-class ProductCreate(SuccessMessageMixin, CreateView):
+class ProductCreate(CreateView):
     model = Product
-    form_class = ProductForm
-    success_url = reverse_lazy('product_list')
-    success_message = "Product successfully created!"
+    template_name = 'product_new.html' 
+    fields = ['name', 'description', 'price']
 
-class ProductUpdate(SuccessMessageMixin, UpdateView):
-    model = Product
-    form_class = ProductForm
-    success_url = reverse_lazy('product_list')
-    success_message = "Product successfully updated!"
 
-class ProductDelete(SuccessMessageMixin, DeleteView):
-    model = Product
-    success_url = reverse_lazy('product_list')
-    success_message = "Product successfully deleted!"
+
+# class ProductUpdate(UpdateView):
+#     model = Product
+
+
+# class ProductDelete(DeleteView):
+#     model = Product
 
 
