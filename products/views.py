@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from .models import Product
-
 from .models import Product
 # from .forms import ProductForm
 
@@ -23,11 +20,15 @@ class ProductCreate(CreateView):
 
 
 
-# class ProductUpdate(UpdateView):
-#     model = Product
+class ProductUpdate(UpdateView):
+    model = Product
+    template_name = 'product_edit.html'
+    fields = ['name', 'description', 'price']
 
 
-# class ProductDelete(DeleteView):
-#     model = Product
+class ProductDelete(DeleteView):
+    model = Product
+    template_name = 'product_delete.html'
+    success_url = reverse_lazy('home')
 
 

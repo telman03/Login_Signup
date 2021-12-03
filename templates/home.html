@@ -4,7 +4,8 @@
 {% if user.is_authenticated %}
     Hi {{ user.username }}!
     <p><a href="{% url 'logout' %}">Log Out</a></p>
-
+    {% for product in products %}
+    {% endfor %}
 {% else %}
 
 {% endif %}
