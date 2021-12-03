@@ -18,13 +18,10 @@ class ProductCreate(CreateView):
     template_name = 'product_new.html' 
     fields = ['name', 'description', 'price']
 
-
-
 class ProductUpdate(UpdateView):
     model = Product
     template_name = 'product_edit.html'
     fields = ['name', 'description', 'price']
-
 
 class ProductDelete(DeleteView):
     model = Product
