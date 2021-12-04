@@ -4,9 +4,9 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=8)
+    name = models.CharField(max_length=100,null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    price = models.DecimalField(decimal_places=2, max_digits=8,null=True, blank=True)
 
 
     def __str__(self):
